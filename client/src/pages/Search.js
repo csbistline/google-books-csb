@@ -56,6 +56,7 @@ class Search extends Component {
                                 Search
                             </Button>
                         </Form>
+                        <hr />
                     </Col>
                 </Row>
                 <Row className="mt-3">
