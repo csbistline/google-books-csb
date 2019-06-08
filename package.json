@@ -10,7 +10,9 @@
     "client": "cd client && npm run start",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "lint": "eslint --quiet .",
+    "fix": "eslint --fix ."
   },
   "author": "",
   "license": "ISC",
@@ -19,7 +21,9 @@
     "nodemon": "^1.18.7"
   },
   "dependencies": {
+    "axios": "^0.19.0",
     "express": "^4.16.3",
-    "if-env": "^1.0.4"
+    "if-env": "^1.0.4",
+    "mongoose": "^5.5.13"
   }
 }
