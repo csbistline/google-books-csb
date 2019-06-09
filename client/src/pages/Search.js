@@ -56,14 +56,15 @@ class Search extends Component {
                                 Search
                             </Button>
                         </Form>
-                        <hr />
                     </Col>
                 </Row>
                 <Row className="mt-3">
                     <Col size="md-12">
                         {this.state.books.length ? (
                             <div>
+                                <h5>Search Results</h5>
                                 {this.state.books.map(book => (
+
                                     <Book
                                         key={book.id}
                                         title={book.volumeInfo.title}
@@ -72,9 +73,9 @@ class Search extends Component {
                                         link={book.volumeInfo.infoLink}
                                         image=
                                         {
-                                            book.volumeInfo.imageLinks ? 
-                                            book.volumeInfo.imageLinks.thumbnail : 
-                                            "https://via.placeholder.com/100x150?text=image"
+                                            book.volumeInfo.imageLinks ?
+                                                book.volumeInfo.imageLinks.thumbnail :
+                                                "https://via.placeholder.com/100x150?text=image"
                                         }
 
                                     />
