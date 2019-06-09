@@ -67,6 +67,7 @@ class Search extends Component {
 
                                     <Book
                                         key={book.id}
+                                        id={book.id}
                                         title={book.volumeInfo.title}
                                         authors={book.volumeInfo.authors}
                                         description={book.volumeInfo.description}

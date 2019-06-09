@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Row, Button } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import Media from 'react-bootstrap/Media'
 
 
@@ -20,14 +20,26 @@ const Book = props => {
                             <h5>{props.title}</h5>
                         </Col>
                         <Col sm={3} className="d-flex justify-content-end">
-                            <a href={props.link} data-id={props.id} target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-outline-secondary mr-1">View</a>
-                            <Button variant="outline-primary" size="sm">Save</Button>
+                            <a 
+                                href={props.link} 
+                                data-id={props.id} 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                className="btn btn-sm btn-outline-secondary mr-1">
+                            View
+                            </a>
+
+                            <button 
+                                className="btn btn-outline-primary btn-sm" 
+                                data-id={props.id} 
+                                onClick={() => console.log(props.id)}>
+                            Save
+                            </button>
                         </Col>
                     </Row>
                     <Row className="pl-3">
                         <p className="pr-3">By {props.authors}</p>
                         <p className="pr-3">{props.description}</p>
-                        
                     </Row>
                 </Media.Body>
             </Media>
