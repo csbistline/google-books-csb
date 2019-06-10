@@ -17,7 +17,7 @@ class Search extends Component {
         });
     };
 
-    handleFormSubmit = event => {
+    searchBook = event => {
         event.preventDefault();
         if (this.state.query) {
             API.searchGoogle(this.state.query)
@@ -51,7 +51,7 @@ class Search extends Component {
                                 variant="primary"
                                 type="submit"
                                 disabled={!(this.state.query)}
-                                onClick={this.handleFormSubmit}
+                                onClick={this.searchBook}
                             >
                                 Search
                             </Button>

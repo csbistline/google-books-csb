@@ -3,6 +3,16 @@ import { Col, Row } from "react-bootstrap";
 import Media from 'react-bootstrap/Media'
 import API from "../utils/GoogleBooksAPI"
 
+/* 
+- Would it make sense to convert this to a stateful component? 
+- How to pass props?
+- Or just write logic in Search/Saved.js and pass that as a prop?
+- Make this reusable: create SaveBtn && DeleteBtn components
+- Render different button depending on where page is called from 
+- Use path? How?
+- Or pass "handleClick" function from parent
+*/
+
 
 const Book = props => {
 
@@ -45,7 +55,8 @@ const Book = props => {
                                         image: props.image
                                     })
                                 }}>
-                            Save
+                            Save 
+                            {/* this could be passed as a buttonName prop */}
                             </button>
                         </Col>
                     </Row>
