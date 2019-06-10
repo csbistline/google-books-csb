@@ -75,8 +75,8 @@ class Search extends Component {
                                         image=
                                         {
                                             book.volumeInfo.imageLinks ?
-                                                book.volumeInfo.imageLinks.thumbnail :
-                                                "https://via.placeholder.com/100x150?text=image"
+                                            book.volumeInfo.imageLinks.thumbnail :
+                                            "https://via.placeholder.com/100x150?text=image"
                                         }
 
                                     />
