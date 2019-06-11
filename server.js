@@ -19,7 +19,7 @@ app.use(logger("dev"));
 
 // Connect to the Mongo DB
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://csbistline:beavis69@ds235947.mlab.com:35947/heroku_vngxn44l";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://user:password123@ds235947.mlab.com:35947/heroku_vngxn44l";
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 // Define API routes here
