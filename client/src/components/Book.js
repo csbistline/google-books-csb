@@ -1,23 +1,11 @@
 import React from 'react';
 import { Col, Row } from "react-bootstrap";
 import Media from 'react-bootstrap/Media'
-import API from "../utils/GoogleBooksAPI"
-
-/* 
-- Would it make sense to convert this to a stateful component? 
-- How to pass props?
-- Or just write logic in Search/Saved.js and pass that as a prop?
-- Make this reusable: create SaveBtn && DeleteBtn components
-- Render different button depending on where page is called from 
-- Use path? How?
-- Or pass "handleClick" function from parent
-*/
-
 
 const Book = props => {
 
     return (
-        <div className="p-3 mb-3 bg-light shadow rounded">
+        <div key={props.id} className="p-3 mb-3 bg-light shadow rounded">
             <Media className="my-2">
                 <img
                     width={100}
@@ -32,31 +20,34 @@ const Book = props => {
                             <h5>{props.title}</h5>
                         </Col>
                         <Col sm={3} className="d-flex justify-content-end">
-                            <a 
-                                href={props.link} 
-                                data-id={props.id} 
-                                target="_blank" 
-                                rel="noopener noreferrer" 
+                            <a
+                                href={props.link}
+                                data-id={props.id}
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="btn btn-sm btn-outline-secondary mr-1">
-                            View
+                                View
                             </a>
 
-                            <button 
-                                className="btn btn-outline-primary btn-sm" 
-                                data-id={props.id} 
+                            <button
+                                className={"btn btn-sm " +
+                                    ((props.label === "Save") ?
+                                    "btn-outline-primary" :
+                                    "btn-outline-danger")
+                                }
+                                data-id={props.id}
                                 onClick={() => {
+                                    props.btnFunc(
+                                        props.id,
+                                        props.title,
+                                        props.authors,
+                                        props.description,
+                                        props.link,
+                                        props.image
+                                    )
                                     console.log(props.id)
-                                    API.saveBook({
-                                        googleId: props.id,
-                                        title: props.title,
-                                        authors: props.authors,
-                                        description: props.description,
-                                        link: props.link,
-                                        image: props.image
-                                    })
                                 }}>
-                            Save 
-                            {/* this could be passed as a buttonName prop */}
+                                {props.label}
                             </button>
                         </Col>
                     </Row>

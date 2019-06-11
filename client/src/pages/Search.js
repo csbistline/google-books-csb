@@ -30,12 +30,24 @@ class Search extends Component {
         }
     };
 
+    saveBtn = (id, title, authors, description, link, image) => {
+        API.saveBook({
+            _id: id,
+            title: title,
+            authors: authors,
+            description: description,
+            link: link,
+            image: image
+        })
+            .then(res => console.log("Book saved\n", res))
+            .catch(err => console.log(err));
+    }
+
     render() {
         return (
             <Container fluid>
                 <Row>
                     <Col size="md-12">
-
                         <Form>
                             <Form.Group controlId="formGroupBook">
                                 <Form.Label className="h3">Book search</Form.Label>
@@ -64,21 +76,26 @@ class Search extends Component {
                             <div>
                                 <h5>Search Results</h5>
                                 {this.state.books.map(book => (
-
                                     <Book
                                         key={book.id}
+                                        label="Save"
                                         id={book.id}
                                         title={book.volumeInfo.title}
-                                        authors={book.volumeInfo.authors}
+                                        authors=
+                                        {
+                                            book.volumeInfo.authors ?
+                                            book.volumeInfo.authors :
+                                            ["No information"]
+                                        }
                                         description={book.volumeInfo.description}
                                         link={book.volumeInfo.infoLink}
                                         image=
                                         {
                                             book.volumeInfo.imageLinks ?
-                                            book.volumeInfo.imageLinks.thumbnail :
-                                            "https://via.placeholder.com/100x150?text=image"
+                                                book.volumeInfo.imageLinks.thumbnail :
+                                                "https://via.placeholder.com/100x150?text=image"
                                         }
-
+                                        btnFunc={this.saveBtn}
                                     />
                                 ))}
                             </div>
